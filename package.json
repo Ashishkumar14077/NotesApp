@@ -1,31 +1,25 @@
 {
-  "name": "keeper-app-part-1-starting",
+  "name": "NotesApp",
   "version": "1.0.0",
   "description": "",
   "keywords": [],
-  "main": "src/index.js",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "author": "",
+  "license": "ISC",
   "dependencies": {
-    "@material-ui/core": "^4.12.4",
-    "@material-ui/icons": "^4.11.3",
-    "nodemon": "^2.0.19",
-    "react": "16.8.6",
-    "react-dom": "16.8.6",
-    "react-scripts": "3.2.0",
-    "uuid": "^8.3.2"
+    "bcrypt": "^5.0.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.4.7",
+    "validator": "^13.7.0"
   },
   "devDependencies": {
-    "typescript": "3.3.3"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
-  },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ]
+    "nodemon": "^2.0.19"
+  }
 }
