@@ -1,16 +1,24 @@
 import React from "react";
+import {format} from 'timeago.js';
 import DeleteIcon from "@material-ui/icons/Delete";
+import EditIcon from '@material-ui/icons/Edit';
+import { Link } from "react-router-dom";
 
 function Note(props) {
-  function handleClick() {
-    props.onDelete(props.id);
+  function handleDelClick() {
+    props.onDelete(props._id);
   }
 
   return (
-    <div className="note">
+    <div className="note" >
       <h1>{props.title}</h1>
       <p>{props.content}</p>
-      <button onClick={handleClick}><DeleteIcon /></button>
+      <div>
+      <p className="date">{format(props.date)}</p>
+      <button onClick={handleDelClick}><DeleteIcon /></button>
+      <Link to={`edit/${props._id}`}><button><EditIcon /></button></Link>
+      </div>
+      
     </div>
   );
 }

@@ -55,7 +55,13 @@ footer p {
   white-space: pre-wrap;
   word-wrap: break-word;
 }
-
+p.date{
+  font-size: 0.7em;
+  color: grey;
+  margin-bottom: 5px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
 .note button {
   position: relative;
   float: right;

@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
-import Header from "./Header";
-import Footer from "./Footer";
-import Home from "./Home";
 import Login from "./Login";
+import Notes from "./Notes";
 import axios from 'axios';
 
 function App() {
@@ -15,7 +13,7 @@ function App() {
         const verified = await axios.get("/users/verify",{
           headers: {Authorization: token}
         })
-        console.log(verified)
+        // console.log(verified)
         setIsLogin(verified.data)
         if(verified.data === false) return localStorage.clear()
 
@@ -27,13 +25,13 @@ function App() {
   },[])
   return (
     <div className="App">
-      <Header />
+      {/* <Header /> */}
       {
         isLogin 
-        ? <Home /> 
+        ? <Notes setIsLogin={setIsLogin}/> 
         : <Login setIsLogin={setIsLogin} />
       }
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

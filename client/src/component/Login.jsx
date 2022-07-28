@@ -1,5 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
+import Footer from "./Footer";
+import Header from "./Header";
 
 function Login({setIsLogin}){
     const [user, setUser] = useState({name: '',email: '',password: ''})
@@ -39,6 +41,8 @@ function Login({setIsLogin}){
         }
      }
     return (
+        <div>
+        <Header/>
         <section>
             <div className="login">
                 <h2>Login</h2>
@@ -68,6 +72,8 @@ function Login({setIsLogin}){
                 </form>
             </div>
         </section>
+        <Footer/>
+        </div>
     )
 }
 
