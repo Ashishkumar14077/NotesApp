@@ -13,10 +13,12 @@ function Note(props) {
     <div className="note" >
       <h1>{props.title}</h1>
       <p>{props.content}</p>
-      <div>
-      <p className="date">{format(props.date)}</p>
-      <button onClick={handleDelClick}><DeleteIcon /></button>
-      <Link to={`edit/${props._id}`}><button><EditIcon /></button></Link>
+      <div className="date">
+        <p>{format(props.date)}</p>
+        <div>
+          <button onClick={handleDelClick}><DeleteIcon /></button>
+          <Link to={`edit/${props._id}`}><button><EditIcon /></button></Link>
+        </div>
       </div>
       
     </div>

@@ -56,8 +56,8 @@ function EditNote(){
     }
 
     return(
-    <div>
-        <h2>Edit Note</h2>
+    <div className="edit-area">
+    <h2>Edit Note</h2>
       <form autoComplete="off" className="create-note">
         <input
         type="text"

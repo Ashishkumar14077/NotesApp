@@ -11,10 +11,8 @@ function Header({setIsLogin}) {
 
   return (
   <header>
-    <h1><HighlightIcon/>Keeper</h1>
+    <h1><Link to="/"><HighlightIcon/>Keeper</Link></h1>
     <ul>
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/create">Create Note</Link></li>
         <li onClick={logoutSubmit}><Link to="/">Logout</Link></li>
     </ul>
   </header>);

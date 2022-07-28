@@ -25,13 +25,11 @@ function App() {
   },[])
   return (
     <div className="App">
-      {/* <Header /> */}
       {
         isLogin 
         ? <Notes setIsLogin={setIsLogin}/> 
         : <Login setIsLogin={setIsLogin} />
       }
-      {/* <Footer /> */}
     </div>
   );
 }

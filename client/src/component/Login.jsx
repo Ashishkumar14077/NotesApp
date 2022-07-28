@@ -1,7 +1,6 @@
 import axios from "axios";
+import HighlightIcon from "@material-ui/icons/Highlight";
 import React, { useState } from "react";
-import Footer from "./Footer";
-import Header from "./Header";
 
 function Login({setIsLogin}){
     const [user, setUser] = useState({name: '',email: '',password: ''})
@@ -40,39 +39,59 @@ function Login({setIsLogin}){
             err.respose.data.msg && setErr(err.respose.data.msg)
         }
      }
+     const [onLogin, setOnLogin] = useState(false)
+     const style = {
+         visibility: onLogin ? "visible" : "hidden",
+         opacity: onLogin ? 1 : 0
+     }
+
     return (
         <div>
-        <Header/>
-        <section>
-            <div className="login">
+        <section className="login-page">
+            <div className="login front-page">
+            <h1><HighlightIcon fontSize="large"/>Keeper</h1>
                 <h2>Login</h2>
                 <form onSubmit={loginSubmit}>
-                    <input type="email" name="email" id="login-email" placeholder="Email" required value={user.email} onChange={onChangeInput}/>
-                    <input type="password" name="password" id="login-password" placeholder="Password" required value={user.password} autoComplete="true" onChange={onChangeInput}/>
+                    <input type="email" name="email" id="login-email"
+                    placeholder="Email" required value={user.email}
+                    onChange={onChangeInput} />
+
+                    <input type="password" name="password" id="login-password"
+                    placeholder="Password" required value={user.password}
+                    autoComplete="true"
+                    onChange={onChangeInput} />
 
                     <button type="submit">Login</button>
                     <p>You don't have an account?
-                        <span> Register Now</span>
+                        <span onClick={() => setOnLogin(true)}> Register Now</span>
                     </p>
                     <h3>{err}</h3>
                 </form>
             </div>
-            <div className="register">
+            <div className="register front-page" style={style}>
+            <h1>Keeper</h1>
             <h2>Register</h2>
                 <form onSubmit={registerSubmit}>
-                    <input type="text" name="name" id="register-name" placeholder="User Name" required value={user.text} onChange={onChangeInput}/>
-                    <input type="email" name="email" id="register-email" placeholder="Email" required value={user.email} onChange={onChangeInput}/>
-                    <input type="password" name="password" id="register-password" placeholder="Password" required value={user.password} autoComplete="true" onChange={onChangeInput}/>
+                    <input type="text" name="name" id="register-name"
+                    placeholder="User Name" required value={user.name}
+                    onChange={onChangeInput} />
+
+                    <input type="email" name="email" id="register-email"
+                    placeholder="Email" required value={user.email}
+                    onChange={onChangeInput} />
+
+                    <input type="password" name="password" id="register-password"
+                    placeholder="Password" required value={user.password}
+                    autoComplete="true" onChange={onChangeInput} />
 
                     <button type="submit">Register</button>
-                    <p>You don't have an account?
-                        <span> Login Now</span>
+                    <p>You have an account?
+                        <span onClick={() => setOnLogin(false)}> Login Now</span>
                     </p>
                     <h3>{err}</h3>
                 </form>
             </div>
         </section>
-        <Footer/>
         </div>
     )
 }
